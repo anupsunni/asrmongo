@@ -2,14 +2,15 @@ const express = require('express');
 const mnDb= require('mongodb').MongoClient;
 const app= express();
 const bp= require('body-parser');
+var port = process.env.PORT || 3000;
 app.use(bp.urlencoded({extended:true}));
 var db;
 app.set('view engine', 'ejs');
 mnDb.connect('mongodb://<dbuser>:<dbpassword>@ds125481.mlab.com:25481/asrmongo',function (err, db) {
     if (err) return console.log(err);
     this.db= db;
-    app.listen(3000, function(){
-        console.log('listening on 3000');
+    app.listen(port, function(){
+        console.log('listening');
 
     });
 });
