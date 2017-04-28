@@ -5,7 +5,7 @@ const bp= require('body-parser');
 app.use(bp.urlencoded({extended:true}));
 var db;
 app.set('view engine', 'ejs');
-mnDb.connect('mongodb://localhost:27017/',function (err, db) {
+mnDb.connect('mongodb://<dbuser>:<dbpassword>@ds125481.mlab.com:25481/asrmongo',function (err, db) {
     if (err) return console.log(err);
     this.db= db;
     app.listen(3000, function(){
